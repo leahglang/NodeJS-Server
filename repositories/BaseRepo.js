@@ -6,7 +6,7 @@ class BaseRepo {
         connect();
     }
 
-    async getAll(query) {
+    async getAll() {
         return this.model.find({}).exec();
     }
 
