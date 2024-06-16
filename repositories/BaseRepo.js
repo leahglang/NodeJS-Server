@@ -5,38 +5,31 @@ class BaseRepo {
         this.model = model;
         connect();
     }
-
-    async getAll() {
-        return this.model.find({}).exec();
+    async getAll(params) {
+        const sPipe = byParams(params);
+        const pipeline = buildPipeline(sPipe);
+        let requests = await this.model.aggregate(pipeline).exec();
+        return await requests;
     }
 
     async getById(id) {
         try {
-            let item = await this.model.findById(id);
-            if (!item) {
-                let error = new Error('Item not found');
+            // const sPipe = 
+            let volunteer = await this.model.findById(id);
+            if (!volunteer) {
+                let error = new Error('volunteer is not found');
                 error.statusCode = 404;
                 throw error;
             }
 
-            return new HttpResponse(item);
-        } catch (errors) {
+        return volunteer;
+        } 
+        catch (errors) {
+            console.log(errors.message);
             throw errors;
         }
     }
-
-    async insert(data) {
-        try {
-            let item = await this.model.create(data);
-            if (item) {
-                return new HttpResponse(item);
-            } else {
-                throw new Error('Something wrong happened');
-            }
-        } catch (error) {
-            throw error;
-        }
-    }
+   
     async update(id, data) {
         try {
             let item = await this.model.findByIdAndUpdate(id, data, { new: true });
@@ -45,21 +38,6 @@ class BaseRepo {
             throw errors;
         }
     }
-
-    // async delete(id) {
-    //     try {
-    //         let item = await this.model.findByIdAndDelete(id);
-    //         if (!item) {
-    //             let error = new Error('Item not found');
-    //             error.statusCode = 404;
-    //             throw error;
-    //         } else {
-    //             return new HttpResponse(item, { deleted: true });
-    //         }
-    //     } catch (errors) {
-    //         throw errors;
-    //     }
-    // }
 
 }
 export default BaseRepo;

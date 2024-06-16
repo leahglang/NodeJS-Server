@@ -12,8 +12,8 @@ const RequestSchema = new Schema({
     status : String,
     volunteerId : String
 })
-
-const Request = mongoose.model('Request', RequestSchema/*, 'helpRequest'*/);
+/*, 'helpRequest'*/
+const Request = mongoose.model('Request', RequestSchema);
 
 
 export default Request;

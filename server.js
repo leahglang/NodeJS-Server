@@ -1,22 +1,19 @@
 import { configDotenv } from 'dotenv';
-configDotenv()
 import  express  from 'express';
-const app = express();
-
-import locationRouter from './routers/LocationRouter.js';
-import typeRequestRouter from './routers/TypeRequestRouter.js';
+import requestRouter from './routers/RequestRouter.js';
 import volunteerRouter from './routers/VolunteerRouter.js';
-import preferenceRouter from './routers/PreferenceRouter.js';
 
-// const hostname = process.env.HOST_NAME;
-// const port = process.env.PORT;
 
-const hostname = 'localhost';
-const port = 3001;
+configDotenv()
+const app = express();
+const hostname = process.env.HOST_NAME;
+const port = process.env.PORT;
+// const hostname = 'localhost';
+// const port = 3001;
 
 app.use(express.json());
 
-app.use('/api/locations', locationRouter);
+app.use('/api/locations', requestRouter);
 app.use('/api/typeRequests', typeRequestRouter);
 app.use('/api/volunteers', volunteerRouter);
 app.use('/api/preferences', preferenceRouter);
