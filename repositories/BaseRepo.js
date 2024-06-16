@@ -10,7 +10,7 @@ class BaseRepo {
         return this.model.find({}).exec();
     }
 
-    async get(id) {
+    async getById(id) {
         try {
             let item = await this.model.findById(id);
             if (!item) {
@@ -46,25 +46,20 @@ class BaseRepo {
         }
     }
 
-    async delete(id) {
-        try {
-            let item = await this.model.findByIdAndDelete(id);
-            if (!item) {
-                let error = new Error('Item not found');
-                error.statusCode = 404;
-                throw error;
-            } else {
-                return new HttpResponse(item, { deleted: true });
-            }
-        } catch (errors) {
-            throw errors;
-        }
-    }
-
-
-
-
-
+    // async delete(id) {
+    //     try {
+    //         let item = await this.model.findByIdAndDelete(id);
+    //         if (!item) {
+    //             let error = new Error('Item not found');
+    //             error.statusCode = 404;
+    //             throw error;
+    //         } else {
+    //             return new HttpResponse(item, { deleted: true });
+    //         }
+    //     } catch (errors) {
+    //         throw errors;
+    //     }
+    // }
 
 }
 export default BaseRepo;

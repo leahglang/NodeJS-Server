@@ -11,7 +11,7 @@ class VolunteerController extends BaseController {
         return await service.getAll();
     }
 
-    async get(id) {
+    async getById(id) {
         return await service.get(id);
     }
 

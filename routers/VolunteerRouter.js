@@ -1,16 +1,12 @@
 import express from 'express';
-const router = express.Router()
+import volunteerController from '../controllers/VolunteerController.js';
 
-import controller from "../controllers/VolunteerController.js";
+const router = express.Router();
 
-router.get('/', controller.getAll);
+router.get('/', volunteerController.getAll);
 
-router.get('/:id', controller.get);
+router.get('/:id', volunteerController.getById);
 
-router.post('/', controller.insert);
-
-router.put('/:id', controller.update);
-
-router.delete('/:id', controller.delete);
+router.post('/', volunteerController.insert);
 
 export default router;

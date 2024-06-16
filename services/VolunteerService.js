@@ -5,5 +5,7 @@ class VolunteerService extends BaseService {
     constructor(repo) {
         super(repo);
     }
+
+    
 }
 export default new VolunteerService(repo);
