@@ -16,7 +16,7 @@ class BaseController{
             next(e);
         }
     }
-
+    
     async getById(req, res, next){
         const { id } = req.params;
         try {
@@ -30,4 +30,5 @@ class BaseController{
 }
 
 export default BaseController;
+
 

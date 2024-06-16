@@ -13,10 +13,9 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-app.use('/api/locations', requestRouter);
-app.use('/api/typeRequests', typeRequestRouter);
+
 app.use('/api/volunteers', volunteerRouter);
-app.use('/api/preferences', preferenceRouter);
+app.use('/api/requests', requestRouter);
 
 
 app.use('/', (req, res) => {
@@ -29,3 +28,5 @@ app.use('/', (req, res) => {
 app.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 })
+
+

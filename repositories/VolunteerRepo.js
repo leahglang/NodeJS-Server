@@ -1,14 +1,16 @@
 import VolunteerModel from '../models/VolunteerModel.js';
 import connect from './db.js';
 
-class VolunteerRepo extends BaseRepo {
+class VolunteerRepo {
     constructor(model) {
         this.model = model;
         connect();
     }
 
     async getAll() {
-        return await this.model.find({}).exec();
+        let v = await this.model.find({}).exec();
+        console.log(v);
+        return v;
     }
 
     async getById(id) {
@@ -20,29 +22,24 @@ class VolunteerRepo extends BaseRepo {
                 throw error;
             }
 
-        return volunteer;
-        } 
+            return volunteer;
+        }
         catch (errors) {
             console.log(errors.message);
-            throw errors;
+            throw new Error('Something wrong happened');
         }
     }
 
     async insert(data) {
         try {
             let volunteer = await this.model.create(data);
-            if (volunteer) {
-                return volunteer;
-            } 
-            else {
-                throw new Error('Something wrong happened');
-            }
-        } 
+            return volunteer;
+        }
         catch (error) {
             console.log(error.message);
             throw error;
         }
     }
-    
+
 }
 export default new VolunteerRepo(VolunteerModel);

@@ -1,5 +1,4 @@
 import BaseController from "./BaseController.js";
-import trc from "./TypeRequestController.js"
 import service from "../services/VolunteerService.js"
 
 class VolunteerController extends BaseController {
@@ -7,20 +6,15 @@ class VolunteerController extends BaseController {
         super(service);        
     }
 
-    async getAll(){
-        return await service.getAll();
-    }
-
-    async getById(id) {
-        return await service.get(id);
-    }
-
-    async insert(id) {
-        if(this.get(id) != null){
-            trc.update(id, data);
-            return;
-        }            
-        return await service.insert(id);
+    async insert(req, res, next) {
+        try {
+            const response = await this.service.insert(req.body);
+            return res.status(200).json(response);
+        }
+        catch (e) {
+            next(e);
+        }
     }
 }
 export default new VolunteerController(service);
+

@@ -4,16 +4,15 @@ const Schema = mongoose.Schema;
 
 const RequestSchema = new Schema({
     _id: Number,
-    location : String, 
+    locationCode : String, 
     description : String,
-    importance : String,
-    people : Number,
-    contactNumber : String,
+    preference : String,
+    numOfStuckPeople : Number,
+    phone : String,
     status : String,
     volunteerId : String
 })
 /*, 'helpRequest'*/
-const Request = mongoose.model('Request', RequestSchema);
-
+const Request = mongoose.model('requests', RequestSchema);
 
 export default Request;
