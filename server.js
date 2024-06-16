@@ -6,10 +6,10 @@ import volunteerRouter from './routers/VolunteerRouter.js';
 
 configDotenv()
 const app = express();
-const hostname = process.env.HOST_NAME;
-const port = process.env.PORT;
-// const hostname = 'localhost';
-// const port = 3001;
+// const hostname = process.env.HOST_NAME;
+// const port = process.env.PORT;
+const hostname = 'localhost';
+const port = 3000;
 
 app.use(express.json());
 

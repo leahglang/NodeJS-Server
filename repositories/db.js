@@ -5,7 +5,7 @@ mongoose.set("strictQuery", false);
 
 export default async function connect() {
     try {
-        await mongoose.connect(process.env.CONN_STRING);
+        await mongoose.connect(/*process.env.CONN_STRING*/'mongodb+srv://leahgl845:tpY6kvY6VdFvfd1a@leahlang.bwg3yuz.mongodb.net/Volunteering');
     }
     catch (e) {
         console.log(e.message);

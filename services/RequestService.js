@@ -17,5 +17,3 @@ class RequestService extends BaseService{
     }
 }
 export default new RequestService(repo);
-
-

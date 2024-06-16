@@ -13,6 +13,6 @@ const RequestSchema = new Schema({
     volunteerId : String
 })
 /*, 'helpRequest'*/
-const Request = mongoose.model('requests', RequestSchema);
+const Request = mongoose.model('requests', RequestSchema, 'helpRequest');
 
 export default Request;

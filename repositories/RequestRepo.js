@@ -3,7 +3,6 @@ import Request from '../models/Request.js';
 import buildPipeline from '../files/Pipline.js';
 import { byParams, byId } from '../files/Filters.js';
 
-
 class RequestRepo {
     constructor(model) {
         this.model = model;
@@ -13,7 +12,7 @@ class RequestRepo {
         const sPipe = byParams(params);
         const pipeline = buildPipeline(sPipe);
         let requests = await this.model.aggregate(pipeline).exec();
-        return await requests;
+        return requests;
     }
 
     async getById(id) {
@@ -34,7 +33,6 @@ class RequestRepo {
             throw new Error('An error occurred while retrieving the request. Please try again later');
         }
     }
-
 
     async update(id, data) {
         try {
