@@ -12,7 +12,6 @@ const RequestSchema = new Schema({
     status : String,
     volunteerId : String
 })
-/*, 'helpRequest'*/
 const Request = mongoose.model('requests', RequestSchema, 'helpRequest');
 
 export default Request;

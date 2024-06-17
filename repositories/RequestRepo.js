@@ -20,11 +20,11 @@ class RequestRepo {
             const sPipe = byId(id);
             const pipline = buildPipeline(sPipe);
             let req = await this.model.aggregate(pipline).exec();
-            if (!req) {
-                let error = new Error('req is not found');
-                error.statusCode = 404;
-                throw error;
-            }
+            // if (!req) {
+            //     let error = new Error('req is not found');
+            //     error.statusCode = 404;
+            //     throw error;
+            // }
 
             return req;
         }

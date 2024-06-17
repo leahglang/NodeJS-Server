@@ -1,4 +1,0 @@
-HOST_NAME="localhost"
-PORT=3000
-CONN_STRING = "mongodb+srv://leahgl845:tpY6kvY6VdFvfd1a@leahlang.bwg3yuz.mongodb.net/Volunteering"
-

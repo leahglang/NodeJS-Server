@@ -3,7 +3,8 @@ import service from "../services/VolunteerService.js"
 
 class VolunteerController extends BaseController {
     constructor(service) {
-        super(service);        
+        super(service);  
+        this.type = "volunteer";      
     }
 
     async insert(req, res, next) {
