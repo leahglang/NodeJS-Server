@@ -37,7 +37,8 @@ export default function buildPipeline(smallPipe) {
         }, {
             '$addFields': {
                 'preference': '$preference_info.preferenceName',
-                'status': '$status_info.state'
+                'status': '$status_info.state',
+                'location': '$location_info.locationName'
             }
         }, {
             '$project': {
@@ -49,9 +50,9 @@ export default function buildPipeline(smallPipe) {
             }
         }
     ]
+
     for (let i of smallPipe) {
         pipeline.splice(pipeline.length - 1, 0, i);
     }
-
     return pipeline;
 }
