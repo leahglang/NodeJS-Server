@@ -4,7 +4,7 @@ import service from '../services/RequestService.js';
 class RequestController extends BaseController{
     constructor(service){
         super(service);
-        this.type = "request";
+        this.type = "help request";
     }
 
     async update(req, res, next) {
