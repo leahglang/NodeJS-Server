@@ -6,15 +6,17 @@ function byParams(params) {
     if (params) {
         if (params.status) {
             query.status = new RegExp(params.status, 'i');
+            console.log(query.status)
+
         }
 
-        if (params.pereference) {
-            query.pereference = new RegExp(params.pereference, 'i');
+        if (params.preference) {
+            query.preference = new RegExp(params.preference, 'i');
         }
 
         if (params.location) {
-            locationFilter = [{'locationName': new RegExp(params.location, 'i') }]
-            
+            locationFilter = [{'location': new RegExp(params.location, 'i') }]
+            console.log(locationFilter)
         }
     }
     const pipeline = [{ '$match': query }]
