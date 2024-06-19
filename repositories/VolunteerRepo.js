@@ -16,12 +16,6 @@ class VolunteerRepo {
     async getById(id) {
         try {
             let volunteer = await this.model.findById(id);
-            // if (!volunteer) {
-            //     let error = new Error('volunteer is not found');
-            //     error.statusCode = 404;
-            //     throw error;
-            // }
-
             return volunteer;
         }
         catch (errors) {
